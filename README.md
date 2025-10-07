@@ -6,7 +6,7 @@ Este guia é **passo a passo** para usar o GameHub: rodar localmente, criar o ba
 
 ## 1) Pré‑requisitos
 - **Java 17+** e **Maven 3.8+**
-- Acesso a um **Oracle (FIAP)**: `<HOST>`, `<PORT>`, `<SERVICE_NAME>`, `<USER>`, `<PASS>`
+- Acesso a um **SQL server (FIAP)**: `<HOST>`, `<PORT>`, `<SERVICE_NAME>`, `<USER>`, `<PASS>`
 - (Opcional) **Azure CLI** se for publicar: `az --version`
 
 > O driver **Oracle JDBC (ojdbc8)** já está declarado no `pom.xml` do projeto.
