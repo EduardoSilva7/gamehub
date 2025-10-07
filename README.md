@@ -14,7 +14,7 @@ Este guia é **passo a passo** para usar o GameHub: rodar localmente, criar o ba
 ---
 
 ## 2) Banco de Dados (criar tabelas)
-No **Oracle FIAP**, execute **UM** dos blocos do arquivo [`gamehub/src/db/gamehub.sql`](db/gamehub.sql):
+No **SQL Developer**, execute os blocos do arquivo(db/gamehub.sql):
 Isso criará as tabelas `GAMES` e `REVIEWS` com FK de `REVIEWS.GAME_ID → GAMES.GAME_ID`.
 
 ---
