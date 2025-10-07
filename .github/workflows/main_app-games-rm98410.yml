@@ -28,7 +28,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-jar
-          path: gamehub/target/*.jar
+          path: gamehub/target/*.jar   # mantém como está
           if-no-files-found: error
 
   deploy:
@@ -41,9 +41,22 @@ jobs:
           name: app-jar
           path: ./artifact
 
+      - name: List artifact contents (debug)
+        run: |
+          echo "== artifact tree =="
+          ls -R ./artifact || true
+
+      - name: Locate jar path
+        id: pkg
+        run: |
+          set -e
+          FILE=$(find ./artifact -type f -name "*.jar" | head -n1)
+          if [ -z "$FILE" ]; then
+            echo "No JAR found under ./artifact"
+            exit 1
+          fi
+          echo "Found JAR: $FILE"
+          echo "path=$FILE" >> $GITHUB_OUTPUT
+
       - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: app-games-rm98410
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: ./artifact/**/*.jar   # << glob recursivo
+        uses: azure/webapps-depl
