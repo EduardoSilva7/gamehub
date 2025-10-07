@@ -1,6 +1,6 @@
 # GameHub — How to Use (FIAP Oracle + Azure App Service)
 
-Este guia é **passo a passo** para usar o GameHub: rodar localmente, criar o banco, configurar variáveis e (opcional) publicar na **Azure App Service** com **Application Insights**. O professor permitiu usar **Oracle FIAP** no lugar do Azure SQL.
+Este guia é **passo a passo** para usar o GameHub: rodar, criar o banco, configurar variáveis e publicar na **Azure App Service** com **Application Insights**.
 
 ---
 
@@ -19,7 +19,7 @@ Isso criará as tabelas `GAMES` e `REVIEWS` com FK de `REVIEWS.GAME_ID → GAMES
 
 ---
 
-## 3) Variáveis de ambiente (Oracle FIAP)
+## 3) Variáveis de ambiente 
 Defina no seu terminal **antes de rodar**:
 
 ```bash
