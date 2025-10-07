@@ -1,0 +1,27 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Games</h1>
+<a href="/games/new">Novo Game</a>
+<table border="1" cellpadding="6">
+  <tr>
+    <th>ID</th><th>Título</th><th>Gênero</th><th>Ano</th><th>Preço</th><th>Ações</th>
+  </tr>
+  <tr th:each="g : ${games}">
+    <td th:text="${g.gameId}">1</td>
+    <td th:text="${g.title}">Título</td>
+    <td th:text="${g.genre}">Gênero</td>
+    <td th:text="${g.releaseYear}">2024</td>
+    <td th:text="${g.price}">0.00</td>
+    <td>
+      <a th:href="@{'/games/' + ${g.gameId} + '/edit'}">Editar</a>
+      <form th:action="@{'/games/' + ${g.gameId} + '/delete'}" method="post" style="display:inline">
+        <button type="submit">Excluir</button>
+      </form>
+      <a th:href="@{'/reviews/game/' + ${g.gameId}}">Reviews</a>
+    </td>
+  </tr>
+</table>
+<a href="/">Voltar</a>
+</body>
+</html>

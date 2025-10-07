@@ -1,0 +1,14 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Review</h1>
+<form action="/reviews" method="post" th:object="${review}">
+  <label>Review ID</label> <input th:field="*{reviewId}"/><br/>
+  <label>Game ID</label> <input th:field="*{gameId}" readonly="readonly"/><br/>
+  <label>Nota (ex: 8.5)</label> <input th:field="*{rating}"/><br/>
+  <label>Texto</label> <input th:field="*{reviewText}"/><br/>
+  <button type="submit">Salvar</button>
+</form>
+<a th:href="@{'/reviews/game/' + ${review.gameId}}">Voltar</a>
+</body>
+</html>
